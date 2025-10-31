@@ -1,4 +1,4 @@
-package com.example.blogmanagement.Repository;
+package com.example.blogmanagement.Repository.mongo;
 
 import com.example.blogmanagement.Model.Comment;
 import org.springframework.data.mongodb.repository.MongoRepository;

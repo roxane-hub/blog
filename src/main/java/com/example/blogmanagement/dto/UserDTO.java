@@ -1,25 +1,25 @@
 package com.example.blogmanagement.dto;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserDTO {
 
     private Long id;
+
+    @NotBlank(message = "Username cannot be blank")
     private String username;
+
+    @Email(message = "Invalid email format")
+    @NotBlank(message = "Email cannot be blank")
     private String email;
 
-    public UserDTO() {}
-
-    public UserDTO(Long id, String username, String email) {
-        this.id = id;
-        this.username = username;
-        this.email = email;
-    }
-
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-
-    public String getUsername() { return username; }
-    public void setUsername(String username) { this.username = username; }
-
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
+    @NotBlank(message = "Password cannot be blank")
+    private String password;
 }

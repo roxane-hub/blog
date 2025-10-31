@@ -1,7 +1,7 @@
 package com.example.blogmanagement.Service;
 
 import com.example.blogmanagement.Model.Post;
-import com.example.blogmanagement.Repository.PostRepository;
+import com.example.blogmanagement.Repository.mongo.PostRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
