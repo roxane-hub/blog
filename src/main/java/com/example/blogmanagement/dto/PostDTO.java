@@ -9,7 +9,7 @@ public class PostDTO {
     private String content;
     private List<CommentDTO> comments;
 
-    public PostDTO() {}
+    public PostDTO(String id, String title, String content) {}
 
     public PostDTO(String id, String title, String content, List<CommentDTO> comments) {
         this.id = id;
