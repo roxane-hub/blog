@@ -1,10 +1,10 @@
 package com.example.blogmanagement.Controller;
 
-import com.example.blogmanagement.Model.User;
 import com.example.blogmanagement.Service.UserService;
+import com.example.blogmanagement.dto.UserDTO;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -20,32 +20,27 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public User saveUser(@Valid @RequestBody User user) {
-        return service.saveUserdto(user);
+    public UserDTO addUser(@Valid @RequestBody UserDTO userDTO) {
+        return service.saveUserdto(userDTO);
     }
 
-
     @GetMapping
-    public Page<User> getUsers(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "5") int size
-    ) {
-        return service.getAllUsers(PageRequest.of(page, size));
+    public Page<UserDTO> getAllUsers(Pageable pageable) {
+        return service.getAllUsers(pageable);
     }
 
     @GetMapping("/{id}")
-    public Optional<User> getUserById(@PathVariable Long id) {
+    public Optional<UserDTO> getUserById(@PathVariable Long id) {
         return service.getUsers(id);
     }
 
     @PutMapping("/{id}")
-    public User updateUser(@PathVariable Long id, @Valid @RequestBody User user) {
-        return service.updateUser(id, user);
+    public UserDTO updateUser(@PathVariable Long id, @Valid @RequestBody UserDTO userDTO) {
+        return service.updateUser(id, userDTO);
     }
 
     @DeleteMapping("/{id}")
-    public String deleteUser(@PathVariable Long id) {
+    public void deleteUser(@PathVariable Long id) {
         service.deleteUser(id);
-        return "User with ID " + id + " has been deleted successfully!";
     }
 }

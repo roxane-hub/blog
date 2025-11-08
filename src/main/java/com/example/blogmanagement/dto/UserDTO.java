@@ -22,4 +22,7 @@ public class UserDTO {
 
     @NotBlank(message = "Password cannot be blank")
     private String password;
+
+    public UserDTO(Long id, String username, @Email String email) {
+    }
 }
